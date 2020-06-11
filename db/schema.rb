@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_11_124807) do
+ActiveRecord::Schema.define(version: 2020_06_11_130938) do
 
   create_table "discussions", force: :cascade do |t|
     t.integer "project_id", null: false
@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(version: 2020_06_11_124807) do
   end
 
   create_table "participations", force: :cascade do |t|
-    t.integer "member_id"
-    t.integer "discussion_id"
+    t.integer "member_id", null: false
+    t.integer "discussion_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["discussion_id"], name: "index_participations_on_discussion_id"
@@ -46,5 +46,7 @@ ActiveRecord::Schema.define(version: 2020_06_11_124807) do
   end
 
   add_foreign_key "discussions", "projects"
+  add_foreign_key "participations", "discussions"
+  add_foreign_key "participations", "members"
   add_foreign_key "projects", "members", column: "owner_id"
 end
