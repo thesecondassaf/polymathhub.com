@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_11_120537) do
+ActiveRecord::Schema.define(version: 2020_06_11_121356) do
 
   create_table "discussions", force: :cascade do |t|
     t.integer "project_id", null: false
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(version: 2020_06_11_120537) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["project_id"], name: "index_discussions_on_project_id"
+  end
+
+  create_table "participations", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "discussion_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["discussion_id"], name: "index_participations_on_discussion_id"
+    t.index ["user_id"], name: "index_participations_on_user_id"
   end
 
   create_table "projects", force: :cascade do |t|
