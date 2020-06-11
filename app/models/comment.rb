@@ -1,5 +1,5 @@
 class Comment < ApplicationRecord
-  has_many :reply, class_name: "Comment", foreign_key: "prompt_id"
+  has_many :replies, class_name: "Comment", foreign_key: "prompt_id"
   belongs_to :prompt, class_name: 'Comment', foreign_key: 'prompt_id', optional: true
 
   belongs_to :discussion
