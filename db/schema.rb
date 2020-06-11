@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_11_091208) do
+ActiveRecord::Schema.define(version: 2020_06_11_120537) do
+
+  create_table "discussions", force: :cascade do |t|
+    t.integer "project_id", null: false
+    t.string "name", null: false
+    t.text "goal", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_discussions_on_project_id"
+  end
 
   create_table "projects", force: :cascade do |t|
     t.integer "owner_id", null: false
@@ -27,5 +36,6 @@ ActiveRecord::Schema.define(version: 2020_06_11_091208) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "discussions", "projects"
   add_foreign_key "projects", "users", column: "owner_id"
 end
