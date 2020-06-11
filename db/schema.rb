@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_11_121356) do
+ActiveRecord::Schema.define(version: 2020_06_11_124807) do
 
   create_table "discussions", force: :cascade do |t|
     t.integer "project_id", null: false
@@ -21,13 +21,19 @@ ActiveRecord::Schema.define(version: 2020_06_11_121356) do
     t.index ["project_id"], name: "index_discussions_on_project_id"
   end
 
+  create_table "members", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "participations", force: :cascade do |t|
-    t.integer "user_id"
+    t.integer "member_id"
     t.integer "discussion_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["discussion_id"], name: "index_participations_on_discussion_id"
-    t.index ["user_id"], name: "index_participations_on_user_id"
+    t.index ["member_id"], name: "index_participations_on_member_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -39,12 +45,6 @@ ActiveRecord::Schema.define(version: 2020_06_11_121356) do
     t.index ["owner_id"], name: "index_projects_on_owner_id"
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "name", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   add_foreign_key "discussions", "projects"
-  add_foreign_key "projects", "users", column: "owner_id"
+  add_foreign_key "projects", "members", column: "owner_id"
 end
