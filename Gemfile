@@ -30,6 +30,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'devise'
 gem "letter_opener", :group => :development
+gem 'letter_opener_web', group: :development
+
 
 
 group :development, :test do

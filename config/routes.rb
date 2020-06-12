@@ -8,5 +8,7 @@ Rails.application.routes.draw do
 
   get 'welcome/index'
   root 'home#index'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  #this makes emails available at localhost:3000/letter_opener
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 end
