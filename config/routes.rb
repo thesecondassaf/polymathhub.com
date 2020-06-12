@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   get 'home/index'
 
-  devise_for :members
+  devise_for :members, controllers: {
+    sessions: 'members/sessions'
+  }
 
   get 'welcome/index'
   root 'home#index'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_12_115736) do
+ActiveRecord::Schema.define(version: 2020_06_12_131816) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "prompt_id"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2020_06_12_115736) do
   end
 
   create_table "members", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "displayname", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "email", default: "", null: false
