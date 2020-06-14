@@ -27,10 +27,12 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 #authentication for rails
-gem 'devise' ,'~> 4.7.2'
+gem 'devise' ,'~> 4.7', '>= 4.7.2'
 
 
-
+group :production do
+  gem 'pg', '~> 1.2', '>= 1.2.3'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -65,4 +65,9 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :letter_opener_web
   config.action_mailer.perform_deliveries = true
+
+  ### AWS Cloud9 definitions ###
+
+  #Allow connections to local server.
+  config.hosts.clear
 end
