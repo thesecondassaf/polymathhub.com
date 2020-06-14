@@ -10,6 +10,11 @@
   </head>
 
   <body>
+    <p class="notice alert-success"><%= notice %></p>
+    <p class="alert alert-danger"><%= alert %></p>
+    <ul class="hmenu">
+      <%= render 'devise/menu/login_items' %>
+    </ul>
     <%= yield %>
   </body>
 </html>

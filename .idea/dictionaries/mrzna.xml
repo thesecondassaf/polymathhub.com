@@ -1,7 +1,14 @@
 <component name="ProjectDictionaryState">
   <dictionary name="mrzna">
     <words>
+      <w>authenticatable</w>
+      <w>confirmable</w>
+      <w>displayname</w>
       <w>participations</w>
+      <w>registerable</w>
+      <w>rememberable</w>
+      <w>timeoutable</w>
+      <w>trackable</w>
     </words>
   </dictionary>
 </component>
