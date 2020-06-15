@@ -12,10 +12,13 @@
 
 ActiveRecord::Schema.define(version: 2020_06_12_131816) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "comments", force: :cascade do |t|
-    t.integer "prompt_id"
-    t.integer "discussion_id", null: false
-    t.integer "member_id", null: false
+    t.bigint "prompt_id"
+    t.bigint "discussion_id", null: false
+    t.bigint "member_id", null: false
     t.text "content", null: false
     t.string "comment_type", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -26,7 +29,7 @@ ActiveRecord::Schema.define(version: 2020_06_12_131816) do
   end
 
   create_table "discussions", force: :cascade do |t|
-    t.integer "project_id", null: false
+    t.bigint "project_id", null: false
     t.string "name", null: false
     t.text "goal", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -62,8 +65,8 @@ ActiveRecord::Schema.define(version: 2020_06_12_131816) do
   end
 
   create_table "participations", force: :cascade do |t|
-    t.integer "member_id", null: false
-    t.integer "discussion_id", null: false
+    t.bigint "member_id", null: false
+    t.bigint "discussion_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["discussion_id"], name: "index_participations_on_discussion_id"
@@ -71,7 +74,7 @@ ActiveRecord::Schema.define(version: 2020_06_12_131816) do
   end
 
   create_table "projects", force: :cascade do |t|
-    t.integer "owner_id", null: false
+    t.bigint "owner_id", null: false
     t.string "name", null: false
     t.text "exposition", null: false
     t.datetime "created_at", precision: 6, null: false
