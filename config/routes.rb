@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get 'home/index'
+  resources :project
 
   devise_for :members, controllers: {
     sessions: 'members/sessions'
