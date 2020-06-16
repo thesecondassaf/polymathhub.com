@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'welcome/index'
 
-  resources :projects
+  resources :projects do
+    resources :discussions
+  end
 
   devise_for :members, controllers: {
     sessions: 'members/sessions'
