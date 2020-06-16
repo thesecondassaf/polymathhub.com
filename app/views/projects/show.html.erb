@@ -1,0 +1,16 @@
+<h1>
+  <%= @project.name %>
+</h1>
+
+<h3>
+  <strong>Project Exposition:</strong>
+  <%= @project.exposition %>
+</h3>
+
+<h4>
+  Project Discussions: <%= link_to 'New Discussion', new_project_discussion_path(@project) %>
+</h4>
+
+<%= render @project.discussions %>
+
+<%= link_to 'Back', projects_path %>
