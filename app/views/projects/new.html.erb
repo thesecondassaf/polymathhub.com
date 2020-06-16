@@ -1,0 +1,17 @@
+<h2>New Project</h2>
+
+<%= form_with model: @project, local: true do |form| %>
+  <p>
+    <%= form.label :name, 'Project Name'%><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :exposition, 'Project Exposition'%><br>
+    <%= form.text_area :exposition %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

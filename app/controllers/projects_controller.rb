@@ -5,6 +5,18 @@ class ProjectsController < ApplicationController
      @projects=Project.all
   end
   def new
-    set_flash_message! :notice, :signed_out
+    @project = Project.new
+  end
+
+  def create
+
+    @member = current_member
+    @member.projects.create(project_params)
+
+    redirect_to projects_path
+  end
+
+  private def project_params
+    params.require(:project).permit(:name, :exposition)
   end
 end
