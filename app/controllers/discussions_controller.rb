@@ -7,8 +7,6 @@ class DiscussionsController < ApplicationController
   end
 
   def create
-
-
     if (helpers.member_signed_in_and_owns_project?(params[:project_id]))
       @project = Project.find(params[:project_id])
       @discussion = @project.discussions.create(discussion_params)
