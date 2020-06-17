@@ -32,8 +32,6 @@ gem 'devise' ,'~> 4.7', '>= 4.7.2'
 
 group :production do
   gem 'pg', '~> 1.2', '>= 1.2.3'
-  gem "letter_opener"
-  gem 'letter_opener_web'
 end
 
 group :development, :test do
