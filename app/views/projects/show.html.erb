@@ -7,9 +7,12 @@
   <%= @project.exposition %>
 </h3>
 
-<h4>
-  Project Discussions: <%= link_to 'New Discussion', new_project_discussion_path(@project) %>
-</h4>
+<% if (member_signed_in_and_owns_project?(@project.id))  %>
+  <h4>
+    Project Discussions: <%= link_to 'New Discussion', new_project_discussion_path(@project) %>
+  </h4>
+<% end %>
+
 
 <%= render @project.discussions %>
 

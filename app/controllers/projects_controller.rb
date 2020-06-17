@@ -14,7 +14,6 @@ class ProjectsController < ApplicationController
   end
 
   def create
-
     @member = current_member
     @member.projects.create(project_params)
 

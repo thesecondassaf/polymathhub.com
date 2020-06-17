@@ -1,0 +1,18 @@
+
+<h3>New Discussion for Project: <%=@project.name %></h3>
+
+<%= form_with(model: [ @project, @project.discussions.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :name, 'Discussion Name'%><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :goal, 'Discussion Goal'%><br>
+    <%= form.text_field :goal %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

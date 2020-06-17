@@ -1,9 +1,7 @@
 <p>
   <strong>Discussion Name:</strong>
-  <%= discussion.name %>
-</p>
-
-<p>
-  <strong>Discussion Goal::</strong>
+  <%= link_to discussion.name, project_discussion_path(discussion.project, discussion) %> ||||
+  <strong>Discussion Goal:</strong>
   <%= discussion.goal %>
 </p>
+
