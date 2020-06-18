@@ -1,6 +1,13 @@
 class DiscussionsController < ApplicationController
   before_action :authenticate_member!, only: [:create, :new]
 
+  def index
+    @project = Project.find(params[:project_id])
+  end
+  def show
+    @discussion = Discussion.find(params[:id])
+  end
+
   def new
     @project = Project.find(params[:project_id])
     @discussion = Discussion.new
