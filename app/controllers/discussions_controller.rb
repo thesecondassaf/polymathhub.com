@@ -1,6 +1,13 @@
 class DiscussionsController < ApplicationController
   before_action :authenticate_member!, only: [:create, :new]
 
+  def index
+    @project = Project.find(params[:project_id])
+  end
+  def show
+    @discussion = Discussion.find(params[:id])
+  end
+
   def new
     @project = Project.find(params[:project_id])
     @discussion = Discussion.new
@@ -12,7 +19,7 @@ class DiscussionsController < ApplicationController
       @discussion = @project.discussions.create(discussion_params)
     end
 
-    redirect_to projects_path(@project)
+    redirect_to project_discussions_path(@project)
   end
 
   private def discussion_params
