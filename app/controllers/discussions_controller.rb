@@ -1,4 +1,4 @@
-class DiscussionsController < ApplicationController
+class DiscussionsController < BaseController
   before_action :authenticate_member!, only: [:create, :new]
 
   def index
