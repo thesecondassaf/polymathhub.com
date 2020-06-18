@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   get 'welcome/index'
 
   resources :projects do
-    resources :discussions
+    resources :discussions do
+      resources :comments
+    end
   end
 
   devise_for :members, controllers: {

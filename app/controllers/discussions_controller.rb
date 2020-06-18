@@ -19,7 +19,7 @@ class DiscussionsController < ApplicationController
       @discussion = @project.discussions.create(discussion_params)
     end
 
-    redirect_to projects_path(@project)
+    redirect_to project_discussions_path(@project)
   end
 
   private def discussion_params
