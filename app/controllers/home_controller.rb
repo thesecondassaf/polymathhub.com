@@ -1,6 +1,4 @@
-class HomeController < ApplicationController
-  #before_action :authenticate_member!
-
+class HomeController < BaseController
   def index
 
   end

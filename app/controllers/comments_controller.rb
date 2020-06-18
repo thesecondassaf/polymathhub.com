@@ -1,4 +1,4 @@
-class CommentsController < ApplicationController
+class CommentsController < BaseController
 
     def create
       if (member_signed_in?)

@@ -1,4 +1,4 @@
-class ProjectsController < ApplicationController
+class ProjectsController < BaseController
   before_action :authenticate_member!, only: [:create, :new]
 
   def index
